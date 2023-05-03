@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 320px;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.form label {
+  width: 300px;
+  display: block;
+}
+
+.form span {
+  display: inline-block;
+  min-width: 100px;
+  text-transform: capitalize;
+}
+
+.form .section_button {
+  display: flex;
+  justify-content: center;
+}

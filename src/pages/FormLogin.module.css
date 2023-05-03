@@ -1,0 +1,21 @@
+.form_login {
+  margin: 0 auto;
+  width: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form_login label {
+  width: 320px;
+  display: flex;
+}
+
+.form_login span {
+  width: 100px;
+}
+
+.form_login input {
+  width: 220px;
+}
