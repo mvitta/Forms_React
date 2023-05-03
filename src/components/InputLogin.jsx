@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react'
 export function InputLogin({ type, id, name, htmlFor, label, valueInput }) {
   const [value, setValue] = useState(valueInput)
 
+  useEffect(() => {
+    console.log(value)
+  }, [value])
+
   function handleChange(e) {
     setValue(e.target.value)
   }
@@ -11,7 +15,13 @@ export function InputLogin({ type, id, name, htmlFor, label, valueInput }) {
     <>
       <label htmlFor={htmlFor}>
         <span>{label}</span>
-        <input type={type} id={id} name={name} value={value} onChange={handleChange} />
+        <input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={handleChange}
+        />
       </label>
     </>
   )

@@ -6,7 +6,6 @@ export function FormLogin() {
     <>
       <h1>Login</h1>
       <form
-        action=''
         method='post'
         className={styles.form_login}
         onSubmit={(e) => {
