@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Input } from './Input.jsx'
 import style from './Form.module.css'
+import { useContext } from 'react'
+import ThemeContext from '../context/ThemeContext.js'
 
 export function Form() {
+  const { red } = useContext(ThemeContext)
   const [formData, setformData] = useState({
     firstName: '',
     lastName: '',
@@ -10,10 +13,6 @@ export function Form() {
     email: '',
     height: 0.0,
   })
-
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
 
   function handleChance(e) {
     e.preventDefault()
@@ -25,7 +24,7 @@ export function Form() {
   }
 
   return (
-    <form action='' onSubmit={handleSubmit} className={style.form}>
+    <form onSubmit={handleSubmit} className={style.form}>
       <label htmlFor='name'>
         <span>Name</span>
         <Input
@@ -77,7 +76,9 @@ export function Form() {
         />
       </label>
       <div className={style.section_button}>
-        <button type='submit'>Submit</button>
+        <button className={red} type='submit'>
+          Submit
+        </button>
       </div>
     </form>
   )

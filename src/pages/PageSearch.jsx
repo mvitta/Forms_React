@@ -1,10 +1,13 @@
 import Search from '../components/Search'
 import styles from './PageSearch.module.css'
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
+import context from '../context/Context.js'
+import ThemeContext from '../context/ThemeContext.js'
 
 export function PageSearch() {
+  const { dark } = useContext(ThemeContext)
   //using hook useRef()
-  //Controlling an input with a state variable
+  //Control an input with a state variable from a parent container
   const inputValue = useRef(null)
 
   function handleSubmit(e) {
@@ -14,12 +17,16 @@ export function PageSearch() {
   }
 
   return (
-    <form action='' className={styles.form_search} onSubmit={handleSubmit}>
-      <label htmlFor='search'>
-        <span>Search</span>
-        <Search ref={inputValue} />
-      </label>
-      <button type='submit'>Submit</button>
-    </form>
+    <context.Provider value={{ usename: 'Mike', password: 12345 }}>
+      <form className={styles.form_search} onSubmit={handleSubmit}>
+        <label htmlFor='search'>
+          <span>Search</span>
+          <Search ref={inputValue} />
+        </label>
+        <button className={dark} type='submit'>
+          Submit
+        </button>
+      </form>
+    </context.Provider>
   )
 }
