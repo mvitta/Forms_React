@@ -1,10 +1,12 @@
 import Search from '../components/Search'
 import styles from './PageSearch.module.css'
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import context from '../context/Context.js'
 import ThemeContext from '../context/ThemeContext.js'
+import { Display } from '../components/Display'
 
 export function PageSearch() {
+  const [display, setDisplay] = useState('')
   const { dark } = useContext(ThemeContext)
   //using hook useRef()
   //Control an input with a state variable from a parent container
@@ -12,7 +14,8 @@ export function PageSearch() {
 
   function handleSubmit(e) {
     const data = inputValue.current.value
-    console.log(data)
+    setDisplay({ data })
+
     e.preventDefault()
   }
 
@@ -27,6 +30,7 @@ export function PageSearch() {
           Submit
         </button>
       </form>
+      <Display display={display} />
     </context.Provider>
   )
 }
