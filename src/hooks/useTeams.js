@@ -4,34 +4,37 @@ export function useTeams({ url }) {
   const [teams, setTeams] = useState([])
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState('')
-
+  // para codigo asincrono no funciona try catch
+  // https://javascript.info/try-catch
   useEffect(
     function () {
-      const fetchTeams = async () => {
-        try {
-          const res = await fetch(url, {
-            headers: {
-              'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-              'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
-            },
-          })
-          if (res.ok && res.status == 200) {
-            const data = await res.json()
-            setTeams(data.data)
-            setLoading(true)
-            setErr('')
-            return
-          }
-          throw 'Error en la API NBA'
-        } catch (error) {
-          setLoading(false)
-          setErr(error)
+      ;(async () => {
+        const res = await fetch(url, {
+          headers: {
+            'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+            'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
+          },
+        })
+        const data = await res.json()
+        if (!res.ok) {
+          const message = `${data.message}, HTTP ${res.status} - url: ${res.url}`
+          setErr(message)
+          throw message
         }
-      }
 
-      fetchTeams()
+        setTeams(data.data)
+        setLoading(true)
+
+        console.log('finalizo try')
+      })()
+
+      return () => {
+        setErr('')
+        setLoading(false)
+        setTeams([])
+      }
     },
-    [url, err]
+    [url]
   )
 
   return [teams, loading, err]

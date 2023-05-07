@@ -8,10 +8,8 @@ const Search = forwardRef(({}, ref) => {
 
   //we use the context and multiple context
   const theContext = useContext(context)
-  console.log(theContext)
 
   const theme = useContext(ThemeContext)
-  console.log(theme)
 
   function handleSearch(e) {
     const searchValue = e.target.value

@@ -1,0 +1,32 @@
+label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+span {
+  margin-right: 5px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+input {
+  height: 25px;
+}
+
+.button_earch_url {
+  height: 30px;
+  width: auto;
+  margin: auto 0;
+}
+
+.button_earch_url:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 74, 195);
+}
+
+.form {
+  margin-bottom: 1rem;
+}

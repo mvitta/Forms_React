@@ -1,4 +1,6 @@
 import { useTeams } from '../hooks/useTeams'
+import { ItemList } from './ItemList'
+import { SearchUrl } from './SearchUrl'
 import styles from './Teams.module.css'
 import { DotSpinner } from '@uiball/loaders'
 
@@ -11,21 +13,30 @@ function Loading() {
 }
 
 export function Teams() {
-  const url = 'https://free-nba.p.rapidapi.com/teams'
+  const url = 'https://free-nba.p.rapidapi.com/teamss'
   const [teams, loading, err] = useTeams({ url })
 
   return (
     <>
       <h2>Teams NBA</h2>
       <article className={styles.articleTeams}>
+        <div>
+          <SearchUrl defaultUrl={url} />
+        </div>
         <div className={styles.error}>{err}</div>
         <ol>
           {!loading ? (
             <Loading />
           ) : (
-            teams.map((team) => {
+            teams.map((team, index) => {
               const { full_name } = team
-              return <li key={crypto.randomUUID()}>{full_name}</li>
+              return (
+                <ItemList
+                  key={crypto.randomUUID()}
+                  full_name={full_name}
+                  index={index}
+                />
+              )
             })
           )}
         </ol>

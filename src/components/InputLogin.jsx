@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export function InputLogin({
-  type,
-  id,
-  name,
-  htmlFor,
-  label,
-  valueInput,
-  valueAutoComplete,
+  type: t,
+  id: i,
+  name: n,
+  htmlFor: h,
+  label: l,
+  valueInput: vi,
+  valueAutoComplete: va,
 }) {
-  const [value, setValue] = useState(valueInput)
+  const [value, setValue] = useState(vi)
 
   function handleChange(e) {
     setValue(e.target.value)
@@ -17,16 +17,16 @@ export function InputLogin({
 
   return (
     <>
-      <label htmlFor={htmlFor}>
-        <span>{label}</span>
+      <label htmlFor={h}>
+        <span>{l}</span>
         <input
-          type={type}
-          id={id}
-          name={name}
+          type={t}
+          id={i}
+          name={n}
           value={value}
           onChange={handleChange}
           //https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete-current-password
-          autoComplete={valueAutoComplete}
+          autoComplete={va}
         />
       </label>
     </>
