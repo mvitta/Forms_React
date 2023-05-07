@@ -1,12 +1,14 @@
 import { InputLogin } from '../components/InputLogin'
 import styles from '../pages/FormLogin.module.css'
+import ThemeContext from '../context/ThemeContext'
+import { useContext } from 'react'
 
 export function FormLogin() {
+  const { green } = useContext(ThemeContext)
   return (
     <>
       <h1>Login</h1>
       <form
-        action=''
         method='post'
         className={styles.form_login}
         onSubmit={(e) => {
@@ -26,6 +28,7 @@ export function FormLogin() {
           label='User Name'
           type='text'
           valueInput=''
+          valueAutoComplete='username'
         />
         <InputLogin
           htmlFor='password'
@@ -34,8 +37,11 @@ export function FormLogin() {
           label='Password'
           type='password'
           valueInput=''
+          valueAutoComplete='current-password'
         />
-        <button type='submit'>Submit</button>
+        <button className={green} type='submit'>
+          Submit
+        </button>
       </form>
     </>
   )

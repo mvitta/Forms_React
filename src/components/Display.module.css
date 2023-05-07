@@ -1,0 +1,12 @@
+.display {
+  overflow-x: auto;
+  margin: 0.5rem auto;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+  width: 320px;
+  border: 10px solid rgb(94, 107, 183);
+  font-weight: 500;
+}
