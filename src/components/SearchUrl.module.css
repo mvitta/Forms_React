@@ -29,4 +29,5 @@ input {
 
 .form {
   margin-bottom: 1rem;
+  visibility: hidden;
 }

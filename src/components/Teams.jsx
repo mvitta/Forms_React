@@ -13,7 +13,7 @@ function Loading() {
 }
 
 export function Teams() {
-  const url = 'https://free-nba.p.rapidapi.com/teamss'
+  const url = 'https://free-nba.p.rapidapi.com/teams'
   const [teams, loading, err] = useTeams({ url })
 
   return (

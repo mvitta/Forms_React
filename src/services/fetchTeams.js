@@ -1,7 +1,7 @@
 export async function fetchTeams(url) {
   const BASE_URL = 'https://free-nba.p.rapidapi.com'
   if (!url.includes(BASE_URL)) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       resolve({ message: 'Error en la Url' })
     })
   }

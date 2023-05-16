@@ -23,6 +23,11 @@ button {
   font-weight: bold;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  border-style: double;
 }
 
 ._dark {
